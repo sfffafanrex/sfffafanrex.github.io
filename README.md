@@ -1,2 +1,1 @@
-
-Curso Gratis de Costuras ^_^
+Ohhhhh yall ai comments ok
