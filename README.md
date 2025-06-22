@@ -1,4 +1,3 @@
-
    <!-- Histats.com  START  (aync)-->
 <script type="text/javascript">var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,4573229,4,0,0,0,00010000']);
