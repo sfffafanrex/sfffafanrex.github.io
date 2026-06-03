@@ -1,97 +1,64 @@
+
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="referrer" content="no-referrer-when-downgrade" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> El Señor nos está hablando !</title>
+    <title>Navigating today’s dating chaos!</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
+            background-color: ##564d4d;
             padding: 20px;
         }
-        .video-container {
+        .video-title {
+            font-size: 1.7em;
+            font-weight: bold;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
             max-width: 720px;
-            margin: auto;
-            background: #fff;
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            margin: 0 auto;
         }
         video {
             width: 100%;
-            border-radius: 8px;
+            max-width: 100%;
+            border-radius: 10px;
+            display: block;
         }
-        .ad-banner {
-            margin-top: 10px;
+        .ad-banner-inside {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            height: 50px;
+            background: rgba(255,255,255,0.92);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            overflow: hidden;
         }
-        .ad-banner img {
-            width: 100%;
-            max-height: 90px;
-            border-radius: 8px;
+        @media (max-width: 400px) {
+            .ad-banner-inside {
+                width: 95vw;
+                height: 40px;
+                font-size: 0.85em;
+            }
         }
     </style>
-<script>
-(function(etkrz){
-var d = document,
-    s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
-s.settings = etkrz || {};
-s.src = "\/\/ancientsnow.com\/cZDo9g6\/b.2W5VlVS\/WmQo9qN\/j\/ce5dNnT\/U\/wDO\/SI0K2kNuzCky1VNxT\/E-ze";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
-</script>  
 </head>
 <body>
-    <div class="separator" style="clear: both; text-align: center;"><iframe width="100%" height="100%"
-    src="https://cdn.videy.co/E8WgFPl51.mp4"
-    frameborder="0" style="position:absolute; top:5; left: 0">
-  </iframe></object></div>
-<script async="async" data-cfasync="false" src="https://hypothesisgarden.com/c41a23ff90a4cb9a439bd54b5d951bc3/invoke.js"></script>
-<div id="container-c41a23ff90a4cb9a439bd54b5d951bc3"></div>
-    
-  <script>
-    // Cegah masuk fullscreen lewat JavaScript
-    document.addEventListener('fullscreenchange', () => {
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      }
-    });
-
-    // Proteksi klik kanan dan F12
-    (function () {
-      document.addEventListener('contextmenu', function (e) {
-        if (!e.target.closest('.allow-context, iframe')) {
-          e.preventDefault();
-        }
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === "F12") e.preventDefault();
-        if (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) e.preventDefault();
-        if (e.ctrlKey && ["U","S"].includes(e.key.toUpperCase())) e.preventDefault();
-      });
-    })();
-  </script>
-
-
-   <!-- Histats.com  START  (aync)-->
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,5007039,4,0,0,0,00010000']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5007039&101" alt="" border="0"></a></noscript>
-<!-- Histats.com  END  -->
-
-</body>
-</html>
-
+    <div class="video-title">Navigating today’s dating chaos!<span aria-label="smile" role="img"></span></div>
+    <div class="video-wrapper">
+        <div class="ad-banner-inside" id="ad-inside-video"></div>
+        <video controls poster="https://cdn.aceimg.com/d6c1a9f6a.jpg">
