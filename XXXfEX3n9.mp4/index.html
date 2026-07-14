@@ -1,64 +1,186 @@
-
-
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigating today’s dating chaos!</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: ##564d4d;
-            padding: 20px;
-        }
-        .video-title {
-            font-size: 1.7em;
-            font-weight: bold;
-            margin-bottom: 18px;
-            letter-spacing: 1px;
-        }
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 720px;
-            margin: 0 auto;
-        }
-        video {
-            width: 100%;
-            max-width: 100%;
-            border-radius: 10px;
-            display: block;
-        }
-        .ad-banner-inside {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 320px;
-            height: 50px;
-            background: rgba(255,255,255,0.92);
-            border-radius: 10px 10px 0 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-            overflow: hidden;
-        }
-        @media (max-width: 400px) {
-            .ad-banner-inside {
-                width: 95vw;
-                height: 40px;
-                font-size: 0.85em;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusive Video Feature</title>
+  <link rel="icon" type="image/x-icon" href="https://videy.co/favicon.ico" />
+  <style>
+    :root {
+      --bg-color: #0b0b0d;
+      --card-bg: #131317;
+      --text-color: #f4f4f2;
+      --muted-color: #9a9a9f;
+      --accent-color: #ffffff; 
+      --btn-bg: #e50914; 
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 550px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--btn-bg);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .sub-headline {
+      font-size: 0.98rem;
+      color: var(--muted-color);
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000000;
+      border: 1px solid #26262c;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .video-thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      filter: blur(4px);
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .play-btn {
+      width: 68px;
+      height: 68px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+      transition: transform 0.2s ease, background 0.2s ease;
+      margin-bottom: 14px;
+    }
+
+    .play-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: #000000;
+      transform: translateX(2px);
+    }
+
+    .video-box:hover .play-btn {
+      transform: scale(1.08);
+      background: #ffffff;
+    }
+
+    .video-prompt {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .action-btn {
+      margin-top: 24px;
+      display: inline-block;
+      width: 100%;
+      background: var(--btn-bg);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      padding: 16px 24px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+      transition: background 0.2s;
+    }
+
+    .action-btn:hover {
+      background: #ff1923;
+    }
+    
+    #histats_counter {
+      margin-top: 20px;
+      opacity: 0.5;
+    }
+  </style>
 </head>
 <body>
-    <div class="video-title">Navigating today’s dating chaos!<span aria-label="smile" role="img"></span></div>
-    <div class="video-wrapper">
-        <div class="ad-banner-inside" id="ad-inside-video"></div>
-        <video controls poster="https://cdn.aceimg.com/d6c1a9f6a.jpg">
+
+  <div class="container">
+    <span class="badge">Trending Now</span>
+    <h1>What Happens Next Changes Everything.</h1>
+    <p class="sub-headline">The cameras kept rolling when everyone else walked away. Watch the full sequence below before it's taken down.</p>
+
+    <div class="video-box" onclick="handleVideoClick(event)">
+      <img class="video-thumbnail" src="https://cdn.aceimg.com/XBhc5M9cy.png" alt="Video Preview">
+      <div class="video-overlay">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-prompt">TAP TO PLAY VIDEO</div>
+      </div>
+    </div>
+
+    <a href="#" class="action-btn" onclick="handleVideoClick(event)">STREAM VIDEO NOW</a>
+
+     <!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5009868,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+_Hasync.push(['Histats.framed_page', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5009868&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+
+</body>
+</html>    
