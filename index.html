@@ -1,278 +1,104 @@
 <!DOCTYPE html>
-<html lang="id">
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://w3.org' xmlns:b='http://google.com' xmlns:data='http://google.com' xmlns:expr='http://google.com'>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Videy – Pemutar Video Sederhana</title>
-  <link rel="icon" type="image/x-icon" href="https://videy.co/favicon.ico" />
-  <link href="https://googleapis.com" rel="stylesheet">
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <title><data:blog.pageTitle/></title>
   
+  <b:include data='blog' name='all-head-content'/>
+
+  <!-- Pemuatan Font Modern -->
+  <link href='https://googleapis.com' rel='preconnect'/>
+  <link crossorigin='anonymous' href='https://gstatic.com' rel='preconnect'/>
+  <link href='https://googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap' rel='stylesheet'/>
+
   <style>
-    /* RESET & BASE */
-    * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; }
-    body {
-      font-family: 'Inter', system-ui, Arial, sans-serif;
-      background: #ffffff;
-      color: #111111;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    /* HEADER */
-    .main-header {
-      width: 100%;
-      border-bottom: 1px solid #e5e7eb;
-      background: #ffffff;
-    }
-    .header-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 12px 16px;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .header-title {
-      font-size: 26px;
-      font-weight: 700;
-      color: #111111;
-      text-decoration: none;
-    }
-    .header-upload {
-      padding: 8px 20px;
-      background: #000000;
-      color: white;
-      border-radius: 9999px;
-      font-weight: 600;
-      font-size: 14px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .header-upload:hover { background: #222222; }
-
-    /* MAIN CONTENT */
-    .page-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0 16px;
-    }
-    .video-player-wrap {
-      width: 100%;
-      padding: 24px 0;
-      display: flex;
-      justify-content: center;
-    }
-    .video-box {
-      position: relative;
-      width: 860px;
-      max-width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000000;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      background: #000000;
-    }
-    .video-error-msg {
-      color: #9ca3af;
-      font-size: 14px;
-      text-align: center;
-      padding: 20px;
-      position: absolute;
-    }
-
-    /* ACTIONS */
-    .video-actions {
-      margin-bottom: 32px;
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 24px;
-      font-weight: 600;
-      font-size: 14px;
-      border-radius: 9999px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .share-btn {
-      background: #f3f4f6;
-      color: #111827;
-    }
-    .share-btn:hover { background: #e5e7eb; }
-    .download-btn {
-      background: #10b981;
-      color: white;
-      display: none; /* Muncul otomatis jika video valid */
-    }
-    .download-btn:hover { background: #059669; }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 32px 16px;
-      color: #6b7280;
-      font-size: 13px;
-      border-top: 1px solid #e5e7eb;
-      margin-top: auto;
-    }
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-bottom: 12px;
-    }
-    .footer-link {
-      color: #9ca3af;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-link:hover { color: #111827; }
-
-    @media (max-width: 768px) {
-      .video-box { border-radius: 12px; }
-      .header-title { font-size: 22px; }
-      .header-upload { padding: 8px 16px; font-size: 13px; }
-    }
-  </style>
-</head>
-<body>
-
-  <header class="main-header">
-    <div class="header-container">
-      <a href="#" class="header-title">videy</a>
-      <a href="#" class="header-upload">Upload Video</a>
-    </div>
-  </header>
-  
-<script async="async" data-cfasync="false" src="https://hypothesisgarden.com/c41a23ff90a4cb9a439bd54b5d951bc3/invoke.js"></script>
-<div id="container-c41a23ff90a4cb9a439bd54b5d951bc3"></div>
-  
-  <main class="page-content">
-    <div class="video-player-wrap">
-      <div class="video-box" id="videoContainer">
-        <video
-          id="video"
-          controls
-          playsinline
-          webkit-playsinline
-          controlsList="nodownload"
-        ></video>
-      </div>
-    </div>   
+    body { font-family: 'Inter', sans-serif; background: #f8f9fa; color: #212529; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
     
-    <div class="video-actions">
-      <button class="btn share-btn" id="shareBtn">🔗 Bagikan Tautan</button>
-      <a href="#" class="btn download-btn" id="downloadBtn" target="_blank" download>📥 Unduh Video</a>
-    </div>
-  </main>
+    header { background: #fff; padding: 30px 0; text-align: center; border-bottom: 1px solid #efefef; }
+    header h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 32px; color: #1a1a1a; margin: 0 0 5px 0; letter-spacing: -0.5px; }
+    header p { margin: 0; font-size: 14px; color: #6c757d; }
+    
+    nav { background: #fff; text-align: center; padding: 15px 0; border-bottom: 1px solid #efefef; }
+    nav ul { list-style: none; padding: 0; margin: 0; }
+    nav ul li { display: inline-block; margin: 0 18px; }
+    nav ul li a { text-decoration: none; color: #495057; font-weight: 500; font-size: 14px; transition: color 0.2s ease; }
+    nav ul li a:hover { color: #007bff; }
 
-  <footer>
-    <div class="footer-links">
-      <a href="#" class="footer-link">Terms of Service</a>
-      <a href="#" class="footer-link">Privacy Policy</a>
-      <a href="#" class="footer-link">Report Abuse</a>
-    </div>
-    <div>© 2026 Videy – Simple & Free Video Hosting</div>
+    .post { background: #fff; margin-bottom: 24px; padding: 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid #f1f3f5; }
+    .post-title a { font-family: 'Plus Jakarta Sans', sans-serif; color: #1a1a1a; text-decoration: none; font-size: 22px; font-weight: 700; letter-spacing: -0.3px; transition: color 0.2s ease; }
+    .post-title a:hover { color: #007bff; }
+    .post-body { line-height: 1.7; margin-top: 12px; font-size: 15px; color: #343a40; }
+    
+    .blog-pager { text-align: center; margin: 40px 0; overflow: hidden; }
+    .blog-pager a { background: #fff; padding: 12px 24px; border-radius: 8px; color: #495057; font-weight: 500; font-size: 14px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.04); border: 1px solid #e9ecef; transition: all 0.2s ease; display: inline-block; }
+    .blog-pager a:hover { background: #007bff; color: #fff; border-color: #007bff; transform: translateY(-1px); }
+    .blog-pager-older-link { float: right; }
+    .blog-pager-newer-link { float: left; }
+    
+    .footer { text-align: center; padding: 30px; font-size: 13px; color: #6c757d; border-top: 1px solid #efefef; margin-top: 40px; }
+  </style>
+
+  <b:skin><![CDATA[ /* Variabel Blogger */ ]]></b:skin>
+</head>
+
+<body>
+  <header>
+    <h1><data:blog.title/></h1>
+    <p><data:blog.description/></p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+      <li><a href='/p/about.html'>About</a></li>
+      <li><a href='/p/contact.html'>Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class='container'>
+    <b:section id='main' showaddelement='yes'>
+      <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
+        <b:widget-settings>
+          <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+          <b:widget-setting name='commentLabel'>Comments</b:widget-setting>
+          <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+          <b:widget-setting name='showCommentLink'>false</b:widget-setting>
+          <b:widget-setting name='showAuthor'>false</b:widget-setting>
+          <b:widget-setting name='showLabels'>false</b:widget-setting>
+          <b:widget-setting name='showLocation'>false</b:widget-setting>
+          <b:widget-setting name='showTimestamp'>false</b:widget-setting>
+          <b:widget-setting name='postsPerAd'>0</b:widget-setting>
+          <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+        </b:widget-settings>
+        
+        <b:includable id='main'>
+          <b:loop values='data:posts' var='post'>
+            <div class='post'>
+              <h2 class='post-title'>
+                <a expr:href='data:post.url'><data:post.title/></a>
+              </h2>
+              <div class='post-body'>
+                <data:post.body/>
+              </div>
+            </div>
+          </b:loop>
+
+          <div class='blog-pager' id='blog-pager'>
+            <b:if cond='data:newerPageUrl'>
+              <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:title='data:messages.newerPosts'>« <data:messages.newerPosts/></a>
+            </b:if>
+            <b:if cond='data:olderPageUrl'>
+              <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:title='data:messages.olderPosts'><data:messages.olderPosts/> »</a>
+            </b:if>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+  </div>
+
+  <footer class='footer'>
+    <p>Copyright &copy; <data:blog.title/>. All Rights Reserved.</p>
   </footer>
-
-<script>
-const params = new URLSearchParams(window.location.search);
-const VIDEO_ID = params.get("id") || "";
-
-const video = document.getElementById("video");
-const videoContainer = document.getElementById("videoContainer");
-const shareBtn = document.getElementById("shareBtn");
-const downloadBtn = document.getElementById("downloadBtn");
-const baseUrl = "https://cdn2.videy.co/";
-
-function showError(message) {
-  video.style.display = "none";
-  const errorDiv = document.createElement("div");
-  errorDiv.className = "video-error-msg";
-  errorDiv.innerText = message;
-  videoContainer.appendChild(errorDiv);
-}
-
-function loadVideo(extension = ".mp4") {
-  if (!VIDEO_ID) {
-    showError("ID video tidak ditemukan. Gunakan format URL: ?id=KODE_VIDEO");
-    return;
-  }
-  const source = baseUrl + VIDEO_ID + extension;
-  video.src = source;
-  video.load();
-}
-
-// Inisialisasi video jika ID tersedia
-if (VIDEO_ID) {
-  loadVideo(".mp4");
-
-  // Ketika video berhasil dimuat dan siap diputar
-  video.onloadedmetadata = () => {
-    downloadBtn.href = video.src;
-    downloadBtn.style.display = "inline-flex";
-  };
-
-  // Mekanisme fallback jika .mp4 gagal, pindah ke .mov
-  video.onerror = () => {
-    if (!video.dataset.triedFallback) {
-      video.dataset.triedFallback = "true";
-      loadVideo(".mov");
-    } else {
-      showError("Video tidak ditemukan atau format tidak didukung.");
-      downloadBtn.style.display = "none";
-    }
-  };
-} else {
-  showError("Silakan masukkan ID Video pada parameter URL.");
-}
-
-// Logika Tombol Salin/Bagikan Tautan
-shareBtn.addEventListener("click", () => {
-  navigator.clipboard.writeText(window.location.href)
-    .then(() => {
-      shareBtn.innerText = "✅ Tautan Disalin!";
-      setTimeout(() => { shareBtn.innerText = "🔗 Bagikan Tautan"; }, 2000);
-    })
-    .catch(() => {
-      alert("Gagal menyalin tautan otomatis.");
-    });
-});
-</script>
-     
-   <!-- Histats.com  START  (aync)-->
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,5007039,4,0,0,0,00010000']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5007039&101" alt="" border="0"></a></noscript>
-<!-- Histats.com  END  -->
-
 </body>
 </html>
